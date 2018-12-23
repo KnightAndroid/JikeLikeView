@@ -8,13 +8,49 @@
 
 
     <com.example.customview.JiKeLikeView
+        android:id="@+id/jikeone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
         app:like_number="999"/>
+    <com.example.customview.JiKeLikeView
+        android:id="@+id/jiketwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jikeone"
+        android:layout_marginTop="10dp"
+        app:like_number="1000"/>
+    <com.example.customview.JiKeLikeView
+        android:id="@+id/jikethree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jiketwo"
+        app:like_number="104"/>
+    <com.example.customview.JiKeLikeView
+        android:id="@+id/jikefour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jikethree"
+        android:layout_marginTop="10dp"
+        app:like_number="34"/>
+    <com.example.customview.JiKeLikeView
+        android:id="@+id/jikefive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jikefour"
+        android:layout_marginTop="10dp"
+        app:like_number="4309"/>
 
 
 
