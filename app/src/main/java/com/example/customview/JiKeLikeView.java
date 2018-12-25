@@ -15,6 +15,7 @@ import android.graphics.Rect;
 import android.support.annotation.Keep;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -197,6 +198,7 @@ public class JiKeLikeView extends View {
         //画上面四点闪亮
         //先确定顶部
         int shiningTop = handTop - shiningBitmap.getHeight() + SystemUtil.dp2px(getContext(), 17);
+        Log.d("ssd",shiningAlpha+"");
         //根据隐藏系数设置点亮的透明度
         bitmapPaint.setAlpha((int) (255 * shiningAlpha));
         //保存画布状态
@@ -204,11 +206,21 @@ public class JiKeLikeView extends View {
         //画布根据点亮的缩放系数进行缩放
         canvas.scale(shiningScale, shiningScale, handBitmapWidth / 2, handTop);
         //画出点亮的bitmap
-        canvas.drawBitmap(shiningBitmap, SystemUtil.dp2px(getContext(), 15), shiningTop, bitmapPaint);
         //恢复画笔之前的状态
         canvas.restore();
         //并且恢复画笔bitmapPaint透明度
         bitmapPaint.setAlpha(255);
+        if(isLike){
+            canvas.drawBitmap(shiningBitmap, SystemUtil.dp2px(getContext(), 15), shiningTop, bitmapPaint);
+        }else{
+            canvas.save();
+            //并且恢复画笔bitmapPaint透明度
+            bitmapPaint.setAlpha(0);
+            canvas.drawBitmap(shiningBitmap, SystemUtil.dp2px(getContext(), 15), shiningTop, bitmapPaint);
+            canvas.restore();
+            //并且恢复画笔bitmapPaint透明度
+            bitmapPaint.setAlpha(255);
+        }
 
         //画文字
         String textValue = String.valueOf(likeNumber);
@@ -306,7 +318,9 @@ public class JiKeLikeView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                jump();
+
+                    jump();
+
                 break;
         }
         return super.onTouchEvent(event);
